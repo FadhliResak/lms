@@ -1,0 +1,272 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* ---------------------------------------------------
+   Badge Animation
+--------------------------------------------------- */
+.badge-anim {
+  opacity: 0;
+  transform: translateY(-3px);
+  animation: badgeAppear .35s ease-out forwards;
+}
+
+@keyframes badgeAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------
+   Root Variables
+--------------------------------------------------- */
+:root {
+  --sidebar-width: 280px;
+  --navbar-h: 56px;
+}
+
+/* ---------------------------------------------------
+   Base Layout
+--------------------------------------------------- */
+body {
+  padding-top: var(--navbar-h);
+}
+
+.content-wrapper {
+  margin-left: 0;
+}
+
+/* ---------------------------------------------------
+   Sidebar Styles
+--------------------------------------------------- */
+.sidebar {
+  flex: 0 0 var(--sidebar-width) !important;
+  max-width: var(--sidebar-width) !important;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+  z-index: 1030;
+}
+
+.sidebar .nav {
+  gap: .25rem;
+}
+
+.sidebar .nav-link {
+  color: #495057;
+  border-radius: .375rem;
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  justify-content: flex-start;
+  font-size: .95rem;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.sidebar .nav-link .badge {
+  margin-left: auto !important;
+  flex-shrink: 0;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(0, 0, 0, .035);
+}
+
+.sidebar .nav-link.active {
+  background-color: #e7f1ff;
+  color: var(--bs-primary);
+  font-weight: 600;
+  border-left: .25rem solid var(--bs-primary);
+}
+
+.sidebar .brand {
+  color: #0d6efd;
+}
+
+.sidebar .brand:hover {
+  color: #0b5ed7;
+}
+
+.sidebar .logout-area {
+  border-top: 1px solid rgba(0, 0, 0, .08);
+}
+
+/* ---------------------------------------------------
+   Dark Sidebar
+--------------------------------------------------- */
+.sidebar-dark {
+  background-color: #212529 !important;
+  color: #dee2e6 !important;
+}
+
+.sidebar-dark .brand {
+  color: #fff;
+}
+
+.sidebar-dark .nav-link {
+  color: #ced4da;
+}
+
+.sidebar-dark .nav-link:hover {
+  background-color: rgba(255, 255, 255, .06);
+}
+
+.sidebar-dark .nav-link.active {
+  background-color: rgba(255, 255, 255, .12);
+  color: #fff;
+  border-left: .25rem solid var(--bs-primary);
+}
+
+.sidebar-dark .badge {
+  filter: saturate(1.05);
+}
+
+/* ---------------------------------------------------
+   Primary Sidebar
+--------------------------------------------------- */
+.sidebar-primary {
+  background-color: var(--bs-primary) !important;
+  color: #eaf2ff !important;
+}
+
+.sidebar-primary .brand,
+.sidebar-primary .nav-link {
+  color: #fff !important;
+}
+
+.sidebar-primary .nav-link:hover {
+  background-color: rgba(255, 255, 255, .12);
+}
+
+.sidebar-primary .nav-link.active {
+  background-color: rgba(255, 255, 255, .2);
+  color: #fff;
+  border-left: .25rem solid #fff;
+}
+
+.sidebar-primary .badge {
+  filter: saturate(1.05);
+}
+
+/* ---------------------------------------------------
+   Sub Navigation
+--------------------------------------------------- */
+.sidebar .menu-label {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1 1 auto;
+}
+
+.subnav {
+  padding-left: .25rem;
+  margin-left: .25rem;
+  border-left: 1px solid rgba(0, 0, 0, .08);
+}
+
+.sidebar-dark .subnav {
+  border-left-color: rgba(255, 255, 255, .12);
+}
+
+.sidebar-primary .subnav {
+  border-left-color: rgba(255, 255, 255, .25);
+}
+
+.subnav .nav-link {
+  font-size: .9rem;
+  padding: .375rem .75rem .375rem 1.75rem;
+}
+
+.subnav .nav-link.active {
+  background-color: #e7f1ff;
+}
+
+.sidebar-dark .subnav .nav-link {
+  color: #adb5bd;
+}
+
+.sidebar-dark .subnav .nav-link.active {
+  background-color: rgba(255, 255, 255, .12);
+}
+
+.sidebar-primary .subnav .nav-link {
+  color: rgba(255, 255, 255, .85);
+}
+
+.sidebar-primary .subnav .nav-link.active {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+/* ---------------------------------------------------
+   Sticky Sidebar
+--------------------------------------------------- */
+.sidebar-sticky {
+  position: sticky;
+  top: var(--navbar-h);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--navbar-h));
+  overflow: hidden;
+}
+
+.sidebar-sticky .nav {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------------------
+   Content Area Clean-up
+--------------------------------------------------- */
+.content-area { margin-top: 0 !important; padding-top: 0 !important; }
+.content-area .row,
+.container-fluid > .row { margin-top: 0 !important; padding-top: 0 !important; }
+.content-area > *:first-child { margin-top: 0 !important; }
+
+.content-area .row {
+  --bs-gutter-y: 0 !important;
+}
+
+.dashboard-grid {
+  --bs-gutter-y: 0;
+}
+
+.welcome-card .card-body {
+  padding: .5rem 1rem;
+}
+
+.dashboard-card .card-body {
+  padding: .75rem;
+}
+
+.dashboard-card h6 {
+  margin-bottom: .25rem;
+}
+
+.dashboard-card p {
+  margin-bottom: .5rem;
+}
+
+/* ---------------------------------------------------
+   Responsive
+--------------------------------------------------- */
+@media (max-width: 992px) {
+  .sidebar {
+    position: static;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .sidebar-sticky {
+    position: static;
+    height: auto;
+  }
+
+  .sidebar .nav-link {
+    white-space: normal;
+  }
+
+  .content-wrapper {
+    margin-left: 0;
+  }
+}
